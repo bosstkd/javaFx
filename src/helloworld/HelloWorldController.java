@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import entities.Personne;
+import helloworld.verif.verification;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,6 +63,9 @@ public class HelloWorldController {
     */
     
     public void changeSceneToDetailsMessage(ActionEvent event) throws IOException{
+    	
+    	verification ver = new verification();
+    	
     	System.out.println("Hello World "+nom.getText()+ ". prenom : " +prenom.getText()+ ".  du mail : "+mail.getText() );
     	FXMLLoader loader = new FXMLLoader();
     	loader.setLocation(getClass().getResource("message.fxml"));    	
@@ -76,7 +80,21 @@ public class HelloWorldController {
 			    	prs.setNom(nom.getText());
 			    	prs.setPrenom(prenom.getText());
 			    	prs.setEmail(mail.getText());
-			    	msgCtr.initData(prs, 0);
+			    	
+			    	
+			    	if(nom.getText().length()<2 || prenom.getText().length()<2) {
+			    		prs.setNom("Veuillez vérifier le nom et le prénom svp !!");
+				    	prs.setPrenom("");
+			    		msgCtr.initData(prs, 2);
+			    	}else if(!ver.isMail(mail.getText())) {
+			    		prs.setNom("Fausse adresse mail");
+				    	prs.setPrenom("");
+			    		msgCtr.initData(prs, 1);
+			    	}else {
+			    		msgCtr.initData(prs, 0);
+			    	}
+			    	
+			    	
     	
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     	window.setScene(helloCtr);

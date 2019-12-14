@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="395.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="helloworld.messageController">
+  <children>
+    <Label fx:id="msg" alignment="TOP_LEFT" contentDisplay="LEFT" layoutX="92.0" layoutY="23.0" prefHeight="88.0" prefWidth="280.0" text="Label" />
+    <ImageView fx:id="logo" fitHeight="48.0" fitWidth="64.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@imgs/info.jpg" />
+      </image>
+    </ImageView>
+    <Button fx:id="btn" layoutX="316.0" layoutY="121.0" mnemonicParsing="false" prefWidth="65.0" text="OK" />
+  </children>
+</AnchorPane>
